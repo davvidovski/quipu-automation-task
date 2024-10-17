@@ -117,6 +117,9 @@ quipu-automation-task/                     # Root folder for the project
 │   ├── webdriverio-ci-on-schedule.yml     # Scheduled test runs
 │   └── webdriverio-ci-push-pr.yml         # Tests on push/PR
 ├── node_modules/                          # Installed Node.js modules
+├── Manual Tests and Bugs/                 # Folder for manual tests and bugs found
+│   ├── Bugs /                             # Folder where the bugs found are located
+│   └── Manual Tests/                      # Folder where the manual tests are located
 ├── test/                                  # Test-related files
 │   ├── pageObjects/                       # Page Object Model files
 │   ├── HomePage.js                        # POM for Home page
