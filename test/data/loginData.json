@@ -1,0 +1,12 @@
+{
+    "validCredentials": {
+      "email": "aleksandardavidovski@icloud.com",
+      "password": "Password123",
+      "accountName": "Aleksandar Davidovski"
+    },
+    "invalidCredentials": {
+      "email": "invaliduser@example.com",
+      "password": "wrongpassword"
+    }
+  }
+  

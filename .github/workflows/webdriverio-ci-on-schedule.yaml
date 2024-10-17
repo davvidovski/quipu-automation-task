@@ -1,0 +1,37 @@
+name: WebDriverIO Scheduled CI
+
+# Trigger the workflow on a schedule (every Friday at 5am and on the last day of the month)
+on:
+  schedule:
+    # Runs every Friday at 5:00 AM UTC
+    - cron: '0 5 * * 5'
+    # Runs on the last day of every month at 5:00 AM UTC
+    - cron: '0 5 28-31 * *'
+    
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    # Set up steps for the CI job
+    steps:
+    
+    # Checkout the code
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    # Set up Node.js environment with a higher version
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '18'
+
+    # Clean install
+    - name: Clean npm install
+      run: |
+        rm -rf node_modules
+        npm install
+
+    # Run WebDriverIO tests using npx
+    - name: Run WebDriverIO tests
+      run: |
+        npx wdio run wdio.conf.js

@@ -1,0 +1,33 @@
+name: WebDriverIO Manual Trigger CI
+
+# Trigger the workflow manually
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    # Set up steps for the CI job
+    steps:
+    
+    # Checkout the code
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    # Set up Node.js environment with a higher version
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '18'
+
+    # Clean install
+    - name: Clean npm install
+      run: |
+        rm -rf node_modules
+        npm install
+
+    # Run WebDriverIO tests using npx
+    - name: Run WebDriverIO tests
+      run: |
+        npx wdio run wdio.conf.js
